@@ -1,0 +1,17 @@
+typedef struct {int x, y;} Point;
+
+cn_PnPoly( Point P, Point V[], int n )
+{
+    int    cn = 0;    // the  crossing number counter
+
+    // loop through all edges of the polygon
+    for (each edge E[i]:V[i]V[i+1] of the polygon) {
+        if (E[i] crosses upward ala Rule #1
+         || E[i] crosses downward ala  Rule #2) {
+            if (P.x <  x_intersect of E[i] with y=P.y)   // Rule #4
+                 ++cn;   // a valid crossing to the right of P.x
+        }
+    }
+    return (cn&1);    // 0 if even (out), and 1 if  odd (in)
+
+}
